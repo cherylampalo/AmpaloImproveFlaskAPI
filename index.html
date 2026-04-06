@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subject Management System</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Subject Management System</h1>
+            <div id="user-info">
+                <span id="username-display"></span>
+                <button id="logout-btn">Logout</button>
+            </div>
+        </header>
+
+        <nav>
+            <button id="dashboard-btn" class="active">Dashboard</button>
+            <button id="profile-btn">Profile</button>
+        </nav>
+
+        <main>
+            <div id="dashboard-section">
+                <h2>Subjects</h2>
+                <button id="add-subject-btn">Add New Subject</button>
+                <div id="subjects-list"></div>
+            </div>
+
+            <div id="profile-section" style="display: none;">
+                <div id="profile-view">
+                    <h2>Profile</h2>
+                    <div class="profile-display">
+                        <div class="profile-picture-container">
+                            <img id="profile-display-pic" src="" alt="Profile Picture" class="profile-picture">
+                            <div id="profile-pic-placeholder" class="profile-picture default-pic" style="display: none;">
+                                <div class="placeholder-text">No Image</div>
+                            </div>
+                        </div>
+                        <div class="profile-info">
+                            <h3>Username: <span id="profile-display-username"></span></h3>
+                            <p>Email: <span id="profile-display-email"></span></p>
+                        </div>
+                    </div>
+                    <button id="edit-profile-btn" class="btn-primary">Edit Profile</button>
+                </div>
+
+                <div id="profile-edit" style="display: none;">
+                    <h2>Edit Profile</h2>
+                    <form id="profile-form">
+                        <div class="form-group">
+                            <label for="profile-username">Username:</label>
+                            <input type="text" id="profile-username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="profile-email">Email:</label>
+                            <input type="email" id="profile-email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="profile-pic">Profile Picture:</label>
+                            <input type="file" id="profile-pic" accept="image/*">
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit">Update Profile</button>
+                            <button type="button" id="cancel-edit-btn">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div id="subject-modal" class="modal" style="display: none;">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2 id="modal-title">Add Subject</h2>
+                    <form id="subject-form">
+                        <div class="form-group">
+                            <label for="section-code">Section Code:</label>
+                            <input type="text" id="section-code" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Description:</label>
+                            <textarea id="description" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="units">Units:</label>
+                            <input type="number" id="units" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject-image">Image:</label>
+                            <input type="file" id="subject-image" accept="image/*" required>
+                        </div>
+                        <button type="submit">Save Subject</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <h2>Login</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-email">Email:</label>
+                    <input type="email" id="login-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password:</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <button type="submit">Login</button>
+            </form>
+            <p>Don't have an account? <a href="#" id="show-register">Register here</a></p>
+            <p><a href="#" id="show-forgot">Forgot password?</a></p>
+        </div>
+    </div>
+
+    <div id="register-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-register">&times;</span>
+            <h2>Register</h2>
+            <form id="register-form">
+                <div class="form-group">
+                    <label for="register-username">Username:</label>
+                    <input type="text" id="register-username" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-email">Email:</label>
+                    <input type="email" id="register-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Password:</label>
+                    <input type="password" id="register-password" required>
+                </div>
+                <button type="submit">Register</button>
+            </form>
+            <p>Already have an account? <a href="#" id="show-login">Login here</a></p>
+        </div>
+    </div>
+
+    <div id="forgot-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-forgot">&times;</span>
+            <h2>Forgot Password</h2>
+            <form id="forgot-form">
+                <div class="form-group">
+                    <label for="forgot-email">Email:</label>
+                    <input type="email" id="forgot-email" required>
+                </div>
+                <button type="submit">Send Reset Link</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
